@@ -1,0 +1,2 @@
+pw = "mysqlpassword2024*"
+windows_service_name = "MySQL"

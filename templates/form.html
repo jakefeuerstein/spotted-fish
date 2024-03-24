@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishing Log</title>
+</head>
+<body>
+    <h1>Fishing Log</h1>
+    <form method="post" action="{{ url_for('process_form') }}">
+        <label for="log-time">Date and time: </label>
+        <input type="datetime-local" id="log-time" name="log-time"><br>
+
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location"><br>
+
+        <p>Activity:</p>
+        <input type="radio" id="snorkel" name="activity" value="snorkel">
+        <label for="snorkel">Snorkeling</label><br>
+        <input type="radio" id="shore" name="activity" value="shore">
+        <label for="shore">Shore fishing</label><br>
+        <br>
+
+        <label for="observed">Species observed (separated by comma): </label>
+        <input type="text" id="observed" name="observed"><br>
+
+        <label for="caught">Species caught (separated by comma): </label>
+        <input type="text" id="caught" name="caught"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

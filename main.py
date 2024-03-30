@@ -5,11 +5,13 @@ from log import Log
 app = Flask(__name__)
 dbm = DBManager()
 
-@app.route('/', methods=['GET', 'POST'])
+# Prototype: render form, final: render index
+@app.route('/', methods=['POST'])
 def form():
     return render_template('form.html')
 
-@app.route('/submit', methods=['GET', 'POST'])
+
+@app.route('/submitted', methods=['GET', 'POST'])
 def process_form():
     new_log = Log(
         time=request.form['log-time'],
@@ -22,10 +24,7 @@ def process_form():
     dbm.add(new_log.get_log())
 
     return render_template(
-        'output.html',
-        email=request.form['email'],
-        name=request.form['name'],
-        acct_type=request.form['acct_type']
+        'form-output.html'
     )
 
 if __name__ == "__main__":

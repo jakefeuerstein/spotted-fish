@@ -135,12 +135,18 @@ mycursor = mydb.cursor()
 
 # ---------------------------------------------------------------------------
 
-# class DBManager:
-#     def add(self, new_user: dict):
-#         email = new_user['email']
-#
-#         sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-#         val = ("John", "Highway 21")
-#         mycursor.execute(sql, val)
-#
-#         mydb.commit()
+class DBManager:
+    def add(self, time: str, location: str, activity: str, observed: str, caught: str):
+        stmt = "INSERT INTO logs (" \
+               "time," \
+               "location, " \
+               "activity, " \
+               "observed, " \
+               "caught" \
+               ")" \
+               "VALUES (" \
+               "%s, %s, %s, %s, %s" \
+               ")"
+        val = (time, location, activity, observed, caught)
+        mycursor.execute(stmt, val)
+        mydb.commit()

@@ -1,8 +1,8 @@
 class Log:
     def __init__(self, time, location, activity, observed, caught):
 
-        def filter_format(type, value):
-            match type:
+        def filter_format(log_input, value):
+            match log_input:
                 case 'time':
                     return value
                 case 'location':
